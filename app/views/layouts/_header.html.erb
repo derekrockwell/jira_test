@@ -11,12 +11,14 @@
         <ul class="nav">
           <li class="active"><a href="#">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>          
-          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>          
+          <li><a href="#contact">Contact</a></li>     
         </ul>      
       </div><!--/.nav-collapse -->
       <% if user_signed_in? %>
-      <em class="float-right"><%= current_user.email%></em>
+      <p class="float-right">
+        <em><%= current_user.email%></em>
+        (<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>)
+      </p>
       <%end%>
     </div>
 
