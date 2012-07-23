@@ -7,13 +7,14 @@
 			</div>
 			<div class="span5 pagination-right">
 				<h2>Login or Register</h2>
-				<form class="well">
-					<input id="username" type="text" placeholder="Username">
-					<input id="password" type="password"  placeholder="Password">
-					<p><a href="#">Create an account </a> or 
-						<button type="submit" class="btn">Login</button>
-					</p>
-				</form>
+				<%= form_for("user", :url => user_session_path, :html => {:class => "well"} ) do |f| %>
+				<%= f.text_field(:email, :placeholder => "Email") %>
+				<%= f.password_field(:password, :placeholder => "Password") %>
+				<p>
+					<%= link_to('Create an account', new_user_registration_path)  %> or 
+					<%= f.submit('Sign in', :class=>"btn btn-primary btn-large") %>
+				</p>	
+				<% end %>
 			</div>
 		</div>			
 	</div>

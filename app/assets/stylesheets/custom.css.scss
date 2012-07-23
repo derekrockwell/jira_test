@@ -1,8 +1,11 @@
 @import "bootstrap";
 
-
 body {
   padding-top: 60px;
+}
+
+.content-wrapper {
+    min-height: 500px;
 }
 
 .footer {
@@ -24,4 +27,8 @@ body {
 }
 .float-left {
     float: left;
+}
+
+.float-right {
+    float: right;
 }
