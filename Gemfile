@@ -8,6 +8,7 @@ gem 'rails', '3.2.6'
 gem 'sqlite3'
 gem 'mysql2'
 gem 'bootstrap-sass'
+gem "omniauth-facebook"
 
 gem 'devise'
 # Gems used only for assets and not required

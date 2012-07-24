@@ -13,6 +13,9 @@
 				<p>
 					<%= link_to('Create an account', new_user_registration_path)  %> or 
 					<%= f.submit('Sign in', :class=>"btn btn-primary btn-large") %>
+				</p>
+				<p> 
+					<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %> 
 				</p>	
 				<% end %>
 			</div>
