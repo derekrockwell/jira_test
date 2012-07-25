@@ -13,11 +13,14 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
+
+  #setting up SSL verification on my local windows 7 box is ... impossible. If on dev, don't verify.
+  if Rails.env.development? then OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE end
   require 'devise/orm/active_record'
   require "omniauth-facebook"
-  config.omniauth :facebook, "322428021183705", "44fafa49a78707b4f488caaf3a60e054",
-     :client_options => {ssl: {ca_file: Rails.root.join('lib/asdfasdfasdfasdfacert.pem').to_s}}
-
+  config.omniauth :facebook, "322428021183705", "44fafa49a78707b4f488caaf3a60e054",:site => 'https://graph.facebook.com/',:authorize_path => '/oauth/authorize',:access_token_path => '/oauth/access_token',
+  :client_options => {:ssl => {:ca_file => Rails.root.join('lib/ca-bundle.crt').to_s}},
+    :scope => 'email,user_birthday,read_stream,user_likes'
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
