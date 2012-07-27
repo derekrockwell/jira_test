@@ -15,7 +15,7 @@ Devise.setup do |config|
   # available as additional gems.
 
   #setting up SSL verification on my local windows 7 box is ... impossible. If on dev, don't verify.
-  if Rails.env.development? then OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE end
+  if Rails.env.derek? then OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE end
   require 'devise/orm/active_record'
   require "omniauth-facebook"
   config.omniauth :facebook, "322428021183705", "44fafa49a78707b4f488caaf3a60e054",:site => 'https://graph.facebook.com/',:authorize_path => '/oauth/authorize',:access_token_path => '/oauth/access_token',
