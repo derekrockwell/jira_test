@@ -9,7 +9,7 @@ development:
   database: crowdfit_rails
   pool: 5
   username: root
-  password: DBWell52
+  password: 
   socket: /var/lib/mysql/mysql.sock
 
 derek:
