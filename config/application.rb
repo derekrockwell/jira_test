@@ -1,5 +1,5 @@
 require File.expand_path('../boot', __FILE__)
-require 'PP'
+require 'pp'
 require 'rails/all'
 
 if defined?(Bundler)
