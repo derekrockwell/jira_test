@@ -10,7 +10,7 @@ development:
   pool: 5
   username: root
   password: DBWell52
-  socket: /tmp/mysql.sock
+  socket: /var/lib/mysql/mysql.sock
 
 derek:
   adapter: mysql2
