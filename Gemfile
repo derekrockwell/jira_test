@@ -11,7 +11,6 @@ gem 'bootstrap-sass'
 gem "omniauth-facebook"
 gem "koala"
 gem 'devise'
-gem 'therubyracer'
 gem 'execjs'
 
 # Gems used only for assets and not required
