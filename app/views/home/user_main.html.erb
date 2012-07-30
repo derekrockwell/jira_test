@@ -1,41 +1,41 @@
-<div class="container content-wrapper">
-	<% if current_user.uid.nil?  %>
-	<h1>Regular login</h1>
-	<%else%>
-	<h1><%= @graph.get_object("me")["name"]%> logged in via Facebook</h1>
-	
-	<div id="accordion" class="accordion">
-		<div class="accordion-group">
 
-			<div class="accordion-heading">
-				<a class="accordion-toggle" href="#basic_info" data-parent="#accordion" data-toggle="collapse">
-					Basic Info
-				</a>
-			</div>
-			<div id="basic_info" class="accordion-body collapse">
-				<pre>
-					<%= @graph.get_object("me").to_yaml %>
-				</pre>
-			</div>
 
-			<div class="accordion-heading">
-				<a class="accordion-toggle" href="#pictures_content" data-parent="#accordion" data-toggle="collapse">
-					Picture
-				</a>
-			</div>
-			<div id="pictures_content" class="collapse">
-				<img src="<%= @graph.get_picture("me")%>"/>
-			</div>	
-			<div class="accordion-heading">
-				<a class="accordion-toggle" href="#likes_content" data-parent="#accordion" data-toggle="collapse">
-					Likes
-				</a>
-			</div>
-			<div id="likes_content" class="collapse">
-				<pre><%= @graph.get_connections("me", "likes")%></pre>
-			</div>
+<div class="hero-unit">
+<% if current_user.uid.nil?  %>
+<h1>Regular login</h1>
+<%else%>
+<h1><%= @graph.get_object("me")["name"]%> via Facebook</h1>
+<div id="accordion" class="accordion well">
+	<div class="accordion-group">
+
+		<div class="accordion-heading">
+			<a class="accordion-toggle" href="#basic_info" data-parent="#accordion" data-toggle="collapse">
+				Basic Info
+			</a>
+		</div>
+		<div id="basic_info" class="accordion-body collapse">
+			<pre>
+				<%= @graph.get_object("me").to_yaml %>
+			</pre>
+		</div>
+
+		<div class="accordion-heading">
+			<a class="accordion-toggle" href="#pictures_content" data-parent="#accordion" data-toggle="collapse">
+				Picture
+			</a>
+		</div>
+		<div id="pictures_content" class="collapse">
+			<img src="<%= @graph.get_picture("me")%>"/>
+		</div>	
+		<div class="accordion-heading">
+			<a class="accordion-toggle" href="#likes_content" data-parent="#accordion" data-toggle="collapse">
+				Likes
+			</a>
+		</div>
+		<div id="likes_content" class="collapse">
+			<pre><%= @graph.get_connections("me", "likes")%></pre>
 		</div>
 	</div>
-
-	<%end %>
 </div>
+</div>
+<%end %>
