@@ -1,2 +1,24 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="container mainpage">
+	<div class="hero-unit">
+		<div class="row">
+			<div class="span5">
+				<h1>CrowdFit.me</h1>
+				<p>An application built to bring people together with proven fitness experts to achieve their fitness and wellness goals</p>
+			</div>
+			<div class="span5 pagination-right">
+				<h2>Login or Register</h2>
+				<%= form_for("user", :url => user_session_path, :html => {:class => "well"} ) do |f| %>
+				<%= f.text_field(:email, :placeholder => "Email") %>
+				<%= f.password_field(:password, :placeholder => "Password") %>
+				<p>
+					<%= link_to('Create an account', new_user_registration_path)  %> or 
+					<%= f.submit('Sign in', :class=>"btn btn-primary btn-large") %>
+				</p>
+				<p> 
+					<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %> 
+				</p>	
+				<% end %>
+			</div>
+		</div>			
+	</div>
+</div>    

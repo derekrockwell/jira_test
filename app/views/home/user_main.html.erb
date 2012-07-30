@@ -1,0 +1,20 @@
+<% if current_user.uid.nil?  %>
+Regular login
+
+<%else%>
+Facebook login
+<pre>
+	General output
+	<%= @graph.get_object("me").to_yaml %>
+</pre>
+<pre>
+	Pictures?
+	<img src="<%= @graph.get_picture("me")%>"/>
+</pre>
+<pre>
+	Likes
+	<%= @graph.get_connections("me", "likes")%>
+</pre>
+
+
+<%end %>
