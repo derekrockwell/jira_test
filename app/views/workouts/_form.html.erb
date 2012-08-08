@@ -1,0 +1,38 @@
+<%= form_for(@workout,:html => {:class => "form-horizontal"})  do |f|   %>
+
+
+<% if @workout.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@workout.errors.count, "error") %> prohibited this workout from being saved:</h2>
+  <ul>
+    <% @workout.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<fieldset>
+  <div class="control-group">
+    <%= f.label :name, :class => "control-label"%>
+    <div class="controls">
+      <%= f.text_field :name, :class => "input-medium" %>
+    </div>
+  </div>
+  <h1>Exercises</h1>
+  <div id="exercise_wrap">
+    <%= f.fields_for :exercises do |builder| %>
+    <%= render 'exercise_fields', f: builder %>
+    <% end %>
+  </div>
+  
+
+</fieldset>
+
+<div class="form-actions">
+  <%= link_to_add_fields "Add Exercise", f, :exercises %>
+  <%= submit_tag "Add Workout", :class =>"btn btn-primary" %>
+</div>
+<% end %>
+
+

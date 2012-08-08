@@ -1,0 +1,10 @@
+<div class="exercise-fields">
+	<div class="control-group">
+		<%= f.label :name, "Name", :class => "control-label" %><br />
+		<div class="controls">
+			<%= f.text_field :name, :class => "input-medium"  %>
+			<%= f.hidden_field :_destroy %>
+			<%= link_to "remove", '#', class: "remove_fields btn btn-small" %>
+		</div>
+	</div>
+</div>

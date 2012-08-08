@@ -11,10 +11,13 @@ class User < ActiveRecord::Base
   :provider, :uid, :name, :access_token
   # attr_accessible :title, :body
 
+  has_many :user_workouts
+  has_many :workouts, through: :user_workouts, source: :workout
+
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
   	user = User.where(:provider => auth.provider, :uid => auth.uid).first
   	unless user
-  		user = User.create(name:auth.extra.raw_info.name,
+  		user = User.create!(name:auth.extra.raw_info.name,
   			provider:auth.provider,
   			uid:auth.uid,
   			email:auth.info.email,

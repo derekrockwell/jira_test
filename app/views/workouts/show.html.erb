@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<h2>Workout:</h2>
+<p>
+	<b>Name:</b>
+	<%= @workout.name %>
+</p>
+<div class="row">
+	<div class="span4 offset1">
+		<h2>Exercises:</h2>
+			<% @workout.exercises.each do |exercise|%>
+			<em><%= exercise.name%></em><br />
+			<%end%>
+	</div>
+</div>
+
+
+
+<%= link_to 'Edit', edit_workout_path(@workout) %> |
+<%= link_to 'Back', workouts_path %>
